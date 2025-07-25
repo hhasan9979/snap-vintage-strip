@@ -3,10 +3,12 @@ import { Card } from '@/components/ui/card';
 
 interface PhotoStripProps {
   photos: string[];
+  date?: string;
+  title?: string;
   onDownload: () => void;
 }
 
-export const PhotoStrip = ({ photos, onDownload }: PhotoStripProps) => {
+export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps) => {
   const stripRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = () => {
@@ -71,10 +73,10 @@ export const PhotoStrip = ({ photos, onDownload }: PhotoStripProps) => {
     });
     
     Promise.all(loadPromises).then(() => {
-      // Add footer text
-      ctx.font = '16px serif';
-      ctx.fillStyle = 'hsl(25, 60%, 25%)';
-      ctx.fillText('Made with ❤️', stripWidth / 2, stripHeight - 30);
+      // Add footer text (handwritten date)
+      ctx.font = '20px Dancing Script, cursive';
+      ctx.fillStyle = 'hsl(45, 90%, 45%)';
+      ctx.fillText(date || 'Summer \'85', stripWidth / 2, stripHeight - 30);
       
       // Download the image
       const link = document.createElement('a');
@@ -100,7 +102,7 @@ export const PhotoStrip = ({ photos, onDownload }: PhotoStripProps) => {
       <div 
         ref={stripRef}
         className="bg-vintage-cream border-4 border-vintage-brown mx-auto relative overflow-hidden"
-        style={{ width: '200px', height: '800px' }}
+        style={{ width: '200px', height: '600px' }}
       >
         {/* Header */}
         <div className="text-center p-2 bg-vintage-sepia/20">
@@ -142,10 +144,10 @@ export const PhotoStrip = ({ photos, onDownload }: PhotoStripProps) => {
           ))}
         </div>
 
-        {/* Footer */}
+        {/* Footer with handwritten date */}
         <div className="absolute bottom-2 left-0 right-0 text-center">
-          <p className="text-xs text-vintage-brown/60 font-serif">
-            Made with ❤️
+          <p className="text-sm text-vintage-gold font-dancing font-semibold">
+            {date || 'Summer \'85'}
           </p>
         </div>
       </div>

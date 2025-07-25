@@ -1,11 +1,11 @@
-import { PhotoBooth } from '@/components/PhotoBooth';
+import { MemoriesGallery } from '@/components/MemoriesGallery';
 import { VintagePatterns } from '@/components/VintagePatterns';
 
 const Index = () => {
   return (
     <div className="relative">
       <VintagePatterns />
-      <PhotoBooth />
+      <MemoriesGallery />
     </div>
   );
 };

@@ -70,12 +70,16 @@ export default {
 					shadow: 'hsl(var(--vintage-shadow))'
 				}
 			},
+			fontFamily: {
+				dancing: ['Dancing Script', 'cursive'],
+			},
 			backgroundImage: {
 				'gradient-vintage': 'var(--gradient-vintage)',
 				'gradient-booth': 'var(--gradient-booth)'
 			},
 			boxShadow: {
 				'vintage': 'var(--shadow-vintage)',
+				'vintage-strong': '0 20px 40px -15px hsl(var(--vintage-shadow) / 0.4)',
 				'photo': 'var(--shadow-photo)'
 			},
 			transitionProperty: {
