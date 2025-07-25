@@ -72,6 +72,7 @@ export default {
 			},
 			fontFamily: {
 				dancing: ['Dancing Script', 'cursive'],
+				playfair: ['Playfair Display', 'serif'],
 			},
 			backgroundImage: {
 				'gradient-vintage': 'var(--gradient-vintage)',

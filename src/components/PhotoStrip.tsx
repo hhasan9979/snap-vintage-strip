@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
 
 interface PhotoStripProps {
@@ -10,6 +10,7 @@ interface PhotoStripProps {
 
 export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps) => {
   const stripRef = useRef<HTMLDivElement>(null);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleDownload = () => {
     if (!stripRef.current || photos.length !== 3) return;
@@ -89,79 +90,96 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
   };
 
   return (
-    <Card className="p-6 bg-card/80 backdrop-blur border-vintage-brown/20 shadow-vintage">
-      <div className="text-center mb-4">
-        <h2 className="text-2xl font-bold text-vintage-brown font-serif">
-          Your Photo Strip
-        </h2>
-        <p className="text-vintage-brown/70 text-sm">
-          Classic booth style memories
-        </p>
-      </div>
-
+    <div className="flex justify-center">
       <div 
-        ref={stripRef}
-        className="bg-vintage-cream border-4 border-vintage-brown mx-auto relative overflow-hidden"
-        style={{ width: '200px', height: '600px' }}
+        className="relative cursor-pointer"
+        style={{ perspective: '1000px' }}
+        onClick={() => setIsFlipped(!isFlipped)}
       >
-        {/* Header */}
-        <div className="text-center p-2 bg-vintage-sepia/20">
-          <h3 className="text-xs font-bold text-vintage-brown font-serif">
-            VINTAGE PHOTOBOOTH
-          </h3>
-        </div>
-
-        {/* Photos */}
-        <div className="flex flex-col gap-1 p-2">
-          {[0, 1, 2].map((index) => (
-            <div
-              key={index}
-              className="aspect-[4/3] bg-vintage-brown/10 border-2 border-vintage-brown/30 relative overflow-hidden"
-            >
-              {photos[index] ? (
-                <>
-                  <img
-                    src={photos[index]}
-                    alt={`Photo ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Vintage overlay */}
-                  <div className="absolute inset-0 bg-vintage-sepia/20 mix-blend-multiply pointer-events-none" />
-                  {/* Film grain effect */}
-                  <div className="absolute inset-0 opacity-30 pointer-events-none bg-gradient-to-br from-transparent via-vintage-brown/5 to-vintage-brown/10" />
-                </>
-              ) : (
-                <div className="flex items-center justify-center h-full text-vintage-brown/40">
-                  <div className="text-center">
-                    <div className="w-8 h-8 rounded-full bg-vintage-brown/20 mx-auto mb-1 flex items-center justify-center">
-                      <span className="text-xs font-bold">{index + 1}</span>
+        <div
+          className={`relative transition-transform duration-700 transform-style-preserve-3d ${
+            isFlipped ? 'rotate-y-180' : ''
+          }`}
+          style={{ 
+            transformStyle: 'preserve-3d',
+            transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+          }}
+        >
+          {/* Front of strip */}
+          <div 
+            ref={stripRef}
+            className="bg-vintage-cream border border-vintage-brown mx-auto relative overflow-hidden backface-hidden"
+            style={{ 
+              width: '200px', 
+              height: '480px',
+              backfaceVisibility: 'hidden'
+            }}
+          >
+            {/* Photos */}
+            <div className="flex flex-col p-2">
+              {[0, 1, 2].map((index) => (
+                <div
+                  key={index}
+                  className="aspect-[4/3] bg-vintage-brown/10 relative overflow-hidden mb-1"
+                >
+                  {photos[index] ? (
+                    <img
+                      src={photos[index]}
+                      alt={`Photo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full text-vintage-brown/40">
+                      <div className="text-center">
+                        <div className="w-8 h-8 rounded-full bg-vintage-brown/20 mx-auto mb-1 flex items-center justify-center">
+                          <span className="text-xs font-bold">{index + 1}</span>
+                        </div>
+                        <p className="text-xs">Waiting...</p>
+                      </div>
                     </div>
-                    <p className="text-xs">Waiting...</p>
-                  </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Footer with handwritten date */}
-        <div className="absolute bottom-2 left-0 right-0 text-center">
-          <p className="text-sm text-vintage-gold font-dancing font-semibold">
-            {date || 'Summer \'85'}
-          </p>
+            {/* Title overlapping last photo */}
+            <div className="absolute bottom-16 left-0 right-0 text-center bg-vintage-cream/90 py-1">
+              <h3 className="text-lg font-bold text-vintage-brown font-playfair">
+                {title}
+              </h3>
+            </div>
+
+            {/* Footer with handwritten date */}
+            <div className="absolute bottom-2 left-0 right-0 text-center">
+              <p className="text-sm text-vintage-brown font-dancing font-semibold">
+                {date || 'Summer \'85'}
+              </p>
+            </div>
+          </div>
+
+          {/* Back of strip */}
+          <div 
+            className="absolute inset-0 bg-vintage-cream border border-vintage-brown mx-auto backface-hidden"
+            style={{ 
+              width: '200px', 
+              height: '480px',
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)'
+            }}
+          >
+            <div className="flex items-center justify-center h-full p-4">
+              <div className="text-center">
+                <p className="text-sm text-vintage-brown font-dancing leading-relaxed">
+                  These moments will<br/>
+                  live forever in<br/>
+                  our hearts ♡<br/><br/>
+                  Click to flip back
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {photos.length === 3 && (
-        <div className="mt-4 text-center">
-          <button
-            onClick={handleDownload}
-            className="text-sm text-vintage-brown hover:text-vintage-gold transition-colors underline"
-          >
-            Click here to download your strip
-          </button>
-        </div>
-      )}
-    </Card>
+    </div>
   );
 };
