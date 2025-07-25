@@ -110,17 +110,17 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             ref={stripRef}
             className="bg-vintage-cream border border-vintage-brown mx-auto relative overflow-hidden backface-hidden"
             style={{ 
-              width: '224px', 
-              height: '624px',
+              width: '200px', 
+              height: '480px',
               backfaceVisibility: 'hidden'
             }}
           >
             {/* Photos */}
-            <div className="flex flex-col p-3 gap-4">
+            <div className="flex flex-col p-2">
               {[0, 1, 2].map((index) => (
                 <div
                   key={index}
-                  className="w-full h-36 bg-vintage-brown/10 relative overflow-hidden"
+                  className="aspect-[4/3] bg-vintage-brown/10 relative overflow-hidden mb-1"
                 >
                   {photos[index] ? (
                     <img
@@ -143,7 +143,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             </div>
 
             {/* Title overlapping last photo */}
-            <div className="absolute bottom-20 left-0 right-0 text-center bg-vintage-cream/90 py-1">
+            <div className="absolute bottom-16 left-0 right-0 text-center bg-vintage-cream/90 py-1">
               <h3 className="text-lg font-bold text-vintage-brown font-playfair">
                 {title}
               </h3>
@@ -159,17 +159,17 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
 
           {/* Back of strip */}
           <div 
-            className="absolute inset-0 bg-white border border-black mx-auto backface-hidden relative overflow-hidden"
+            className="absolute inset-0 bg-vintage-cream border border-vintage-brown mx-auto backface-hidden"
             style={{ 
-              width: '224px', 
-              height: '624px',
+              width: '200px', 
+              height: '480px',
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)'
             }}
           >
             <div className="flex items-center justify-center h-full p-4">
               <div className="text-center">
-                <p className="text-sm text-black font-dancing leading-relaxed">
+                <p className="text-sm text-vintage-brown font-dancing leading-relaxed">
                   These moments will<br/>
                   live forever in<br/>
                   our hearts ♡<br/><br/>

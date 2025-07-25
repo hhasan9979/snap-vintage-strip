@@ -6,9 +6,9 @@ export const memoriesData: Memory[] = [
     title: 'Sweet Memories',
     date: 'Summer \'85',
     photos: [
-      '/photos/photo1.jpg',
-      '/photos/photo2.jpg',
-      '/photos/photo3.jpg'
+      '/photos/memory-1/photo1.jpg',
+      '/photos/memory-1/photo2.jpg',
+      '/photos/memory-1/photo3.jpg'
     ],
     description: 'A beautiful day captured in time'
   },
@@ -17,9 +17,9 @@ export const memoriesData: Memory[] = [
     title: 'Starry Night',
     date: 'Dec \'87',
     photos: [
-      '/photos/photo4.jpg',
-      '/photos/photo5.jpg',
-      '/photos/photo6.jpg'
+      '/photos/memory-2/photo1.jpg',
+      '/photos/memory-2/photo2.jpg',
+      '/photos/memory-2/photo3.jpg'
     ],
     description: 'Night adventures under the stars'
   },
@@ -28,32 +28,10 @@ export const memoriesData: Memory[] = [
     title: 'Good Times',
     date: 'Spring \'92',
     photos: [
-      '/photos/photo7.jpg',
-      '/photos/photo8.jpg',
-      '/photos/photo9.jpg'
+      '/photos/memory-3/photo1.jpg',
+      '/photos/memory-3/photo2.jpg',
+      '/photos/memory-3/photo3.jpg'
     ],
     description: 'Friends and laughter'
-  },
-  {
-    id: 'memory-4',
-    title: 'Beach Days',
-    date: 'July \'89',
-    photos: [
-      '/photos/photo10.jpg',
-      '/photos/photo11.jpg',
-      '/photos/photo12.jpg'
-    ],
-    description: 'Sandy toes and salty hair'
-  },
-  {
-    id: 'memory-5',
-    title: 'Holiday Magic',
-    date: 'Winter \'91',
-    photos: [
-      '/photos/photo13.jpg',
-      '/photos/photo14.jpg',
-      '/photos/photo15.jpg'
-    ],
-    description: 'Cozy winter moments'
   }
 ];
