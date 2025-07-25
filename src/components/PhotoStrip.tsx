@@ -110,17 +110,17 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             ref={stripRef}
             className="bg-vintage-cream border border-vintage-brown mx-auto relative overflow-hidden backface-hidden"
             style={{ 
-              width: '200px', 
-              height: '480px',
+              width: '224px', 
+              height: '624px',
               backfaceVisibility: 'hidden'
             }}
           >
             {/* Photos */}
-            <div className="flex flex-col p-2">
+            <div className="flex flex-col p-3 gap-4">
               {[0, 1, 2].map((index) => (
                 <div
                   key={index}
-                  className="aspect-[4/3] bg-vintage-brown/10 relative overflow-hidden mb-1"
+                  className="w-full h-36 bg-vintage-brown/10 relative overflow-hidden"
                 >
                   {photos[index] ? (
                     <img
@@ -143,7 +143,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             </div>
 
             {/* Title overlapping last photo */}
-            <div className="absolute bottom-16 left-0 right-0 text-center bg-vintage-cream/90 py-1">
+            <div className="absolute bottom-20 left-0 right-0 text-center bg-vintage-cream/90 py-1">
               <h3 className="text-lg font-bold text-vintage-brown font-playfair">
                 {title}
               </h3>
@@ -159,17 +159,29 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
 
           {/* Back of strip */}
           <div 
-            className="absolute inset-0 bg-vintage-cream border border-vintage-brown mx-auto backface-hidden"
+            className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 border border-vintage-brown mx-auto backface-hidden relative overflow-hidden"
             style={{ 
-              width: '200px', 
-              height: '480px',
+              width: '224px', 
+              height: '624px',
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)'
             }}
           >
+            {/* Film reel holes pattern */}
+            <div className="absolute left-2 top-0 bottom-0 w-4 flex flex-col justify-evenly">
+              {Array.from({ length: 15 }).map((_, i) => (
+                <div key={i} className="w-3 h-3 bg-black rounded-sm"></div>
+              ))}
+            </div>
+            <div className="absolute right-2 top-0 bottom-0 w-4 flex flex-col justify-evenly">
+              {Array.from({ length: 15 }).map((_, i) => (
+                <div key={i} className="w-3 h-3 bg-black rounded-sm"></div>
+              ))}
+            </div>
+            
             <div className="flex items-center justify-center h-full p-4">
               <div className="text-center">
-                <p className="text-sm text-vintage-brown font-dancing leading-relaxed">
+                <p className="text-sm text-white font-dancing leading-relaxed">
                   These moments will<br/>
                   live forever in<br/>
                   our hearts ♡<br/><br/>
