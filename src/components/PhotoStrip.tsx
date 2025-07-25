@@ -110,8 +110,8 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             ref={stripRef}
             className="bg-vintage-cream border border-vintage-brown mx-auto relative overflow-hidden backface-hidden"
             style={{ 
-              width: '200px', 
-              height: '480px',
+              width: '218px', 
+              height: '588px',
               backfaceVisibility: 'hidden'
             }}
           >
@@ -120,7 +120,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
               {[0, 1, 2].map((index) => (
                 <div
                   key={index}
-                  className="aspect-[4/3] bg-vintage-brown/10 relative overflow-hidden mb-1"
+                  className="aspect-[4/3] bg-vintage-brown/10 relative overflow-hidden mb-4"
                 >
                   {photos[index] ? (
                     <img
@@ -143,7 +143,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             </div>
 
             {/* Title overlapping last photo */}
-            <div className="absolute bottom-16 left-0 right-0 text-center bg-vintage-cream/90 py-1">
+            <div className="absolute bottom-20 left-0 right-0 text-center bg-vintage-cream/90 py-1">
               <h3 className="text-lg font-bold text-vintage-brown font-playfair">
                 {title}
               </h3>
@@ -161,8 +161,8 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
           <div 
             className="absolute inset-0 bg-vintage-cream border border-vintage-brown mx-auto backface-hidden"
             style={{ 
-              width: '200px', 
-              height: '480px',
+              width: '218px', 
+              height: '588px',
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)'
             }}
