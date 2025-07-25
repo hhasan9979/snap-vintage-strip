@@ -8,33 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Vintage Photobooth Color Palette */
+    --background: 45 25% 96%;
+    --foreground: 25 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 20% 92%;
+    --card-foreground: 25 30% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 42 20% 92%;
+    --popover-foreground: 25 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 25 60% 25%;
+    --primary-foreground: 45 25% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 30 25% 75%;
+    --secondary-foreground: 25 30% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 15% 85%;
+    --muted-foreground: 25 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 15 45% 55%;
+    --accent-foreground: 45 25% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 45 25% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 15% 80%;
+    --input: 35 15% 80%;
+    --ring: 25 60% 25%;
+
+    /* Vintage design tokens */
+    --vintage-sepia: 35 45% 75%;
+    --vintage-brown: 25 60% 25%;
+    --vintage-cream: 45 25% 96%;
+    --vintage-gold: 45 85% 65%;
+    --vintage-shadow: 25 30% 15%;
+
+    /* Gradients */
+    --gradient-vintage: linear-gradient(135deg, hsl(var(--vintage-cream)), hsl(var(--vintage-sepia)));
+    --gradient-booth: linear-gradient(180deg, hsl(var(--vintage-brown)), hsl(var(--primary)));
+
+    /* Shadows */
+    --shadow-vintage: 0 8px 32px -8px hsl(var(--vintage-shadow) / 0.3);
+    --shadow-photo: 0 4px 16px -4px hsl(var(--vintage-shadow) / 0.4);
+
+    /* Transitions */
+    --transition-vintage: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 

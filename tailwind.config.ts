@@ -61,7 +61,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				vintage: {
+					sepia: 'hsl(var(--vintage-sepia))',
+					brown: 'hsl(var(--vintage-brown))',
+					cream: 'hsl(var(--vintage-cream))',
+					gold: 'hsl(var(--vintage-gold))',
+					shadow: 'hsl(var(--vintage-shadow))'
 				}
+			},
+			backgroundImage: {
+				'gradient-vintage': 'var(--gradient-vintage)',
+				'gradient-booth': 'var(--gradient-booth)'
+			},
+			boxShadow: {
+				'vintage': 'var(--shadow-vintage)',
+				'photo': 'var(--shadow-photo)'
+			},
+			transitionProperty: {
+				'vintage': 'var(--transition-vintage)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
