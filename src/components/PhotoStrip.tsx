@@ -159,7 +159,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
 
           {/* Back of strip */}
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 border border-vintage-brown mx-auto backface-hidden relative overflow-hidden"
+            className="absolute inset-0 bg-white border border-black mx-auto backface-hidden relative overflow-hidden"
             style={{ 
               width: '224px', 
               height: '624px',
@@ -167,21 +167,9 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
               transform: 'rotateY(180deg)'
             }}
           >
-            {/* Film reel holes pattern */}
-            <div className="absolute left-2 top-0 bottom-0 w-4 flex flex-col justify-evenly">
-              {Array.from({ length: 15 }).map((_, i) => (
-                <div key={i} className="w-3 h-3 bg-black rounded-sm"></div>
-              ))}
-            </div>
-            <div className="absolute right-2 top-0 bottom-0 w-4 flex flex-col justify-evenly">
-              {Array.from({ length: 15 }).map((_, i) => (
-                <div key={i} className="w-3 h-3 bg-black rounded-sm"></div>
-              ))}
-            </div>
-            
             <div className="flex items-center justify-center h-full p-4">
               <div className="text-center">
-                <p className="text-sm text-white font-dancing leading-relaxed">
+                <p className="text-sm text-black font-dancing leading-relaxed">
                   These moments will<br/>
                   live forever in<br/>
                   our hearts ♡<br/><br/>
