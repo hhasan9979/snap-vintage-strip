@@ -364,7 +364,7 @@
             
             <!-- Back of strip -->
             <div class="strip-face strip-back">
-              <div class="strip-back-text">
+              <div class="strip-back-text" id="strip-quote-text">
                 These moments will<br/>
                 live forever in<br/>
                 our hearts ♡<br/><br/>
@@ -389,7 +389,8 @@
             './public/photos/photo2.jpg',
             './public/photos/photo3.jpg'
           ],
-          description: 'Favorite Pictures of You'
+          description: 'Favorite Pictures of You',
+          quote: 'My favorite photo of you of all time <3'
         },
         {
           id: 'memory-2',
@@ -401,7 +402,8 @@
             './public/photos/photo5.jpg',
             './public/photos/photo6.jpg'
           ],
-          description: 'Best Island Date'
+          description: 'Best Island Date',
+          quote: 'My favorite outfit of you. I loved spending time and taking photos.'
         },
         {
           id: 'memory-3',
@@ -413,7 +415,8 @@
             './public/photos/photo8.jpg',
             './public/photos/photo9.jpg'
           ],
-          description: 'Cold Goofy Date'
+          description: 'Cold Goofy Date',
+          quote: 'Cold ass day but we made the best of it. One of the best dates.'
         },
         {
           id: 'memory-4',
@@ -425,7 +428,8 @@
             './public/photos/photo11.jpg',
             './public/photos/photo12.jpg'
           ],
-          description: 'First Fun Date'
+          description: 'First Fun Date',
+          quote: 'First active fun date at Brooklyn Mini Golf.'
         },
         {
           id: 'memory-5',
@@ -437,7 +441,8 @@
             './public/photos/photo14.jpg',
             './public/photos/photo15.jpg'
           ],
-          description: 'First Ice Skating Date'
+          description: 'First Ice Skating Date',
+          quote: 'Great day hiking, ice skating and taking photos.'
         },
         {
           id: 'memory-6',
@@ -449,7 +454,8 @@
             './public/photos/photo23.jpg',
             './public/photos/photo24.jpg'
           ],
-          description: 'Fun rides'
+          description: 'Fun rides',
+          quote: 'Thanks for making the carnival so much fun.'
         }
       ];
 
@@ -506,6 +512,10 @@
 
         document.getElementById('strip-title-text').textContent = memory.title;
         document.getElementById('strip-date-text').textContent = memory.date;
+        
+        // Update the quote on the back
+        const quoteText = memory.quote || "These moments will live forever in our hearts ♡";
+        document.getElementById('strip-quote-text').innerHTML = `${quoteText}<br/><br/>Click to flip back`;
       }
 
       // Show Gallery

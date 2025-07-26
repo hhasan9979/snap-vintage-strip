@@ -21,6 +21,7 @@ export const MemoriesGallery = () => {
             photos={selectedMemory.photos}
             date={selectedMemory.date}
             title={selectedMemory.title}
+            quote={selectedMemory.quote}
             onDownload={() => {}}
           />
         </div>

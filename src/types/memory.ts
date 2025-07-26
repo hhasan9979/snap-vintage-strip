@@ -4,4 +4,5 @@ export interface Memory {
   date: string;
   photos: [string, string, string];
   description?: string;
+  quote?: string;
 }

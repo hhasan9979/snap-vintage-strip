@@ -5,10 +5,11 @@ interface PhotoStripProps {
   photos: string[];
   date?: string;
   title?: string;
+  quote?: string;
   onDownload: () => void;
 }
 
-export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps) => {
+export const PhotoStrip = ({ photos, date, title, quote, onDownload }: PhotoStripProps) => {
   const stripRef = useRef<HTMLDivElement>(null);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -170,9 +171,7 @@ export const PhotoStrip = ({ photos, date, title, onDownload }: PhotoStripProps)
             <div className="flex items-center justify-center h-full p-4">
               <div className="text-center">
                 <p className="text-sm text-vintage-brown font-dancing leading-relaxed">
-                  These moments will<br/>
-                  live forever in<br/>
-                  our hearts ♡<br/><br/>
+                  {quote || "These moments will live forever in our hearts ♡"}<br/><br/>
                   Click to flip back
                 </p>
               </div>
